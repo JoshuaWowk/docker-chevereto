@@ -25,6 +25,7 @@ services:
     networks:
       - private
       # - bridge
+      # not needed if you use the default bridge network
     environment:
       CHEVERETO_DB_HOST: ${CONTAINER_BASENAME}_db
       CHEVERETO_DB_USERNAME: ${MYSQL_USERNAME}
