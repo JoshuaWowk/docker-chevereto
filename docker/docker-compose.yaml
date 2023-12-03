@@ -23,6 +23,7 @@ services:
     restart: always
     networks:
       - chev_net
+      - bridge
     environment:
       CHEVERETO_DB_HOST: ${CONTAINER_BASENAME}_db
       CHEVERETO_DB_USERNAME: ${MYSQL_USERNAME}
