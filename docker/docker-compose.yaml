@@ -5,7 +5,7 @@ services:
     image: mariadb:10.1.22
     volumes:
       - database:/var/lib/mysql:rw
-    container_name: ${CONTAINER_BASENAME}_DATABASE
+    container_name: ${CONTAINER_BASENAME}_db
     restart: always
     networks:
       # - bridge
@@ -31,6 +31,8 @@ services:
       CHEVERETO_DB_PASSWORD: ${MYSQL_PASSWORD}
       CHEVERETO_DB_NAME: ${MYSQL_DB_NAME}
       CHEVERETO_DB_PREFIX: chv_
+      CHEVERETO_HOSTNAME: ${CHEVERETO_HOSTNAME}
+      CHEVERETO_HOSTNAME_PATH: ${CHEVERETO_HOSTNAME_PATH}
     volumes:
       - chevereto_images:/var/www/html/images:rw
       - ./php.ini:/usr/local/etc/php/php.ini:ro
