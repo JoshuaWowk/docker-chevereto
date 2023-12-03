@@ -39,7 +39,7 @@ services:
 
 networks:
   private:
-    external: true
+    # external: true
 #   bridge:
 #     external: true
 
