@@ -7,7 +7,8 @@ services:
       - database:/var/lib/mysql:rw
     container_name: ${CONTAINER_BASENAME}_DATABASE
     restart: always
-    # networks:
+    networks:
+      - bridge
     #   - chev_net
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
@@ -21,9 +22,9 @@ services:
     image: nmtan/chevereto:latest
     container_name: ${CONTAINER_BASENAME}_APPLICATION
     restart: always
-    # networks:
-    #   - chev_net
-    #   - bridge
+    networks:
+      # - chev_net
+      - bridge
     environment:
       CHEVERETO_DB_HOST: ${CONTAINER_BASENAME}_db
       CHEVERETO_DB_USERNAME: ${MYSQL_USERNAME}
