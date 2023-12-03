@@ -9,7 +9,7 @@ services:
     restart: always
     networks:
       # - bridge
-      - chev_net
+      - private
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: ${MYSQL_DB_NAME}
@@ -23,7 +23,7 @@ services:
     container_name: ${CONTAINER_BASENAME}_APPLICATION
     restart: always
     networks:
-      - chev_net
+      - private
       # - bridge
     environment:
       CHEVERETO_DB_HOST: ${CONTAINER_BASENAME}_db
@@ -38,7 +38,8 @@ services:
       - ${HOST_PORT}:80
 
 networks:
-  chev_net:
+  private:
+    external: true
 #   bridge:
 #     external: true
 
